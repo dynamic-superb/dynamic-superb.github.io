@@ -163,11 +163,11 @@ function NavigationBar({ width, tableControlRef, ...props }) {
 
   let items = [
     //["Challenge", [["SLT2023", "/challenge-slt2023"], ["AAAI2022", "/challenge-aaai2022"]]],
-    ["Call for Task", "/contribute"],
+    ["Call for Task", "/call-for-task"],
     ["Github", "https://github.com/dynamic-superb/dynamic-superb"],
     ["Paper", "https://arxiv.org/abs/2309.09510"],
-    ["Tasks", "/tasks"],
-    ["Leaderboard", "/leaderboard"],
+    //["Tasks", "https://github.com/dynamic-superb/dynamic-superb/blob/main/docs/task_list.md"],
+    //["Leaderboard", "https://github.com/dynamic-superb/dynamic-superb/blob/main/docs/leaderboard.md"],
   ];
   /* if (auth.isLoggedIn) {
     // items.push(["Submit", "/submit"]);

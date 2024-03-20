@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useTheme } from "@material-ui/core/styles";
 import { Box, Typography, Grid, Button, Chip, List, ListItem, Divider, Menu } from "@material-ui/core";
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
 import { Section, SubSection } from "./components/Sections";
 import { Title } from "./components/Titles";
 import AdaptiveLink from "./components/AdaptiveLink";
@@ -85,10 +86,7 @@ function Tasks(props) {
           title="Tasks"
           description={
             <span>
-              General speech processing can be categorized into{" "}
-              <Strong>discriminative</Strong> and <Strong>generative</Strong>{" "}
-              tasks. The initial release of SUPERB focues on the former, where
-              ten tasks are collected from <Strong>six domains</Strong>.
+              Lorem Ipsum
             </span>
           }
         />
@@ -97,7 +95,7 @@ function Tasks(props) {
         <LiftedPaper elevation={3}>
           <Box padding={theme.spacing(3, 2)}>
             <Typography color="textPrimary" variant="body1">
-              Filter by Status
+              Filter/Search
             </Typography>
             {/*
             <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
@@ -142,6 +140,36 @@ function Tasks(props) {
                 )
               })}
             </List>
+            <Table>
+              <TableContainer component={LiftedPaper}>
+                <Table className={classes.table} aria-label="simple table">
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>Instance</TableCell>
+                      <TableCell align="right">BERT-GSLM</TableCell>
+                      <TableCell align="right">Whisper&nbsp;(g)</TableCell>
+                      <TableCell align="right">ImageBind-LLM&nbsp;(g)</TableCell>
+                      <TableCell align="right">Whisper-LLM&nbsp;(g)</TableCell>
+                      <TableCell align="right">ASR-ChatGPT&nbsp;(g)</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {["1234", "test", "abcd"].map((row) => (
+                      <TableRow key={row}>
+                        <TableCell component="th" scope="row">
+                          {row}
+                        </TableCell>
+                        <TableCell align="right"></TableCell>
+                        <TableCell align="right"></TableCell>
+                        <TableCell align="right"></TableCell>
+                        <TableCell align="right"></TableCell>
+                        <TableCell align="right"></TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Table>
           </Box>
         </LiftedPaper>
       </Section>
