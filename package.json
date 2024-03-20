@@ -1,5 +1,5 @@
 {
-  "name": "superb-website",
+  "name": "dynamic-superb",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://superbbenchmark.github.io",
@@ -41,7 +41,7 @@
   },
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
-    "build": "react-scripts build",
+    "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -58,6 +58,7 @@
   ],
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "gh-pages": "^6.1.1",
     "raw-loader": "^4.0.2",
     "webpack": "4.44.2"
   }
