@@ -11,6 +11,7 @@ import YouTube from 'react-youtube';
 import { Title } from "./components/Titles";
 import { useMarkdown } from "./hooks/markdown-file";
 import MarkdownBlock from "./components/MarkdownBlock";
+import { HashLink } from "react-router-hash-link";
 
 export default function CallForTask(props) {
     const theme = useTheme();
@@ -68,8 +69,8 @@ export default function CallForTask(props) {
                         <br/>
                         <div>
                             To submit tasks, we encourage contributors to carefully read our
-                            {" "}<a href="#Task-Submission-Tutorial">submission guidelines</a> and
-                            {" "}<a href="#Review-Process">review process</a> beforehand. You are welcome to
+                            {" "}<HashLink smooth to="#Task-Submission-Tutorial">submission guidelines</HashLink> and
+                            {" "}<HashLink smooth to="#Review-Process">review process</HashLink> beforehand. You are welcome to
                             have discussions on GitHub with not only the organizers but also other
                             researchers in the community. As an evaluation benchmark for universal
                             models, Dynamic-SUPERB embraces various creative tasks. To make sure your

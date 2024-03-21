@@ -126,7 +126,7 @@ export default function Landing(props) {
                         <br/>
                         <div>
                             For contributing new tasks, please refer to
-                            the <a href="/call-for-task#Task-Submission-Tutorial">task submission tutorial</a>.
+                            the <HashLink smooth to="/call-for-task#Task-Submission-Tutorial">task submission tutorial</HashLink>.
                             To submit scores for your model, please refer to
                             the <a href="https://github.com/dynamic-superb/dynamic-superb/blob/main/docs/score_submission.md"
                             target="_blank" rel="noopener noreferrer"> score submission tutorial</a>.
@@ -136,7 +136,7 @@ export default function Landing(props) {
                         <br/>
                         <div>
                             All submitted tasks will undergo
-                            a <a href="/call-for-task#Review-Process">review process</a> conducted by our team.
+                            a <HashLink smooth to="/call-for-task#Review-Process">review process</HashLink> conducted by our team.
                             We will evaluate the quality, feasibility, and relevance of each task
                             proposal. Upon approval, the tasks will be merged into the Dynamic-SUPERB
                             repository, making them available for evaluation and comparison by the
