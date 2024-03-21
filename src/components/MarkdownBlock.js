@@ -39,13 +39,13 @@ export default function MarkdownBlock({ mdFile })
                         )
                     },
                     a({ href, children, ...props }) {
-                        const match = /.*superbbenchmark\.org\/\w+/.exec(href || '')
+                        const match = /https:/.exec(href || '')
                         return match ? (
-                            <HashLink to={match[0].replace(/.*superbbenchmark\.org/, "") + "#top"} {...props}>
-                                {children}
-                            </HashLink>
-                        ) : (
                             <a href={href} {...props}>
+                                {children}
+                            </a>
+                        ) : (
+                            <a href={"https://github.com/dynamic-superb/dynamic-superb/blob/main/docs/" + href} {...props}>
                                 {children}
                             </a>
                         )
@@ -56,7 +56,7 @@ export default function MarkdownBlock({ mdFile })
                     },
                     h1({ level, children, ...props }) {
                         const id = children.toString().replace(/ /g, '-')
-                        return <Title titleComponent={"h1"} titleVariant={"h4"} titleAlign={"left"} id={id} title={children}/>
+                        return <Title id={id} titleComponent={"h1"} titleVariant={"h4"} titleAlign={"left"} title={children}/>
                     },
                     h2({ level, children, ...props }) {
                         const id = children.toString().replace(/ /g, '-')

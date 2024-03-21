@@ -23,6 +23,10 @@ export default function CallForTask(props) {
         setWidth(ref.current.offsetWidth)
     }, []);
 
+    useEffect(() => {
+        document.getElementById(window.location.hash.substring(1))?.scrollIntoView();
+    }, [MarkdownBlock]);
+
     const videoWidth = Math.min(width, 700)
     const opts = {
         height: videoWidth / 1920 * 1080,
