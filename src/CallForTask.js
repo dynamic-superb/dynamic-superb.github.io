@@ -17,8 +17,8 @@ export default function CallForTask(props) {
     const theme = useTheme();
     const ref = useRef(null);
     const [width, setWidth] = useState(0);
-    const task_submission = useMarkdown("/task_submission.md");
-    const review_process = useMarkdown("/review_process.md");
+    // const task_submission = useMarkdown("/task_submission.md");
+    // const review_process = useMarkdown("/review_process.md");
 
     useEffect(() => {
         setWidth(ref.current.offsetWidth)
@@ -93,12 +93,12 @@ export default function CallForTask(props) {
                     </Typography>
                 </SubSection>
 
-                <Box margin={theme.spacing(8, 0)} textAlign="center">
+                {/* <Box margin={theme.spacing(8, 0)} textAlign="center">
                     <MarkdownBlock mdFile={task_submission}/>
                 </Box>
                 <Box margin={theme.spacing(8, 0)} textAlign="center">
                     <MarkdownBlock mdFile={review_process}/>
-                </Box>
+                </Box> */}
             </Box>
         </Box>
     );

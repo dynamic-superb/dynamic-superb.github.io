@@ -55,7 +55,7 @@ export default function Landing(props) {
                     color="textSecondary"
                 >
                             <a href="https://arxiv.org/abs/2309.09510" target="_blank" rel="noopener noreferrer">Dynamic-SUPERB</a>
-                            {" "}is a dynamic, collaborative
+                            {" "}is a dynamic and collaborative
                             benchmark aimed at building universal speech
                             models capable of leveraging instruction tuning
                             to perform multiple tasks in a zero-shot fashion.
@@ -126,7 +126,7 @@ export default function Landing(props) {
                         <br/>
                         <div>
                             For contributing new tasks, please refer to
-                            the <HashLink smooth to="/call-for-task#Task-Submission-Tutorial">task submission tutorial</HashLink>.
+                            the <HashLink smooth to="/task-submission">task submission tutorial</HashLink>.
                             To submit scores for your model, please refer to
                             the <a href="https://github.com/dynamic-superb/dynamic-superb/blob/main/docs/score_submission.md"
                             target="_blank" rel="noopener noreferrer"> score submission tutorial</a>.
@@ -136,7 +136,7 @@ export default function Landing(props) {
                         <br/>
                         <div>
                             All submitted tasks will undergo
-                            a <HashLink smooth to="/call-for-task#Review-Process">review process</HashLink> conducted by our team.
+                            a <HashLink smooth to="/review-process">review process</HashLink> conducted by our team.
                             We will evaluate the quality, feasibility, and relevance of each task
                             proposal. Upon approval, the tasks will be merged into the Dynamic-SUPERB
                             repository, making them available for evaluation and comparison by the
