@@ -48,7 +48,6 @@ function App() {
     const [height, setHeight] = React.useState(0);
     const [navbarHeight, setNavbarHeight] = React.useState(0);
     const tableControlRef = React.useRef(null);
-    const auth = useContext(AuthContext);
 
     const setViewPort = () => {
         setWidth(window.innerWidth);
@@ -100,18 +99,7 @@ export default () => {
     const { token, isAdmin, email, login, logout } = useAuth();
     return (
         <ThemeProvider theme={createMuiTheme(mainTheme)}>
-            <AuthContext.Provider
-                value={{
-                    isLoggedIn: !!token,
-                    token: token,
-                    isAdmin: isAdmin,
-                    email: email,
-                    login: login,
-                    logout: logout,
-                }}
-            >
-                <App />
-            </AuthContext.Provider>
+            <App />
         </ThemeProvider>
     );
 };

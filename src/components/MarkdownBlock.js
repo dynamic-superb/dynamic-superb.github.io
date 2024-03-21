@@ -41,11 +41,11 @@ export default function MarkdownBlock({ mdFile })
                     a({ href, children, ...props }) {
                         const match = /https:/.exec(href || '')
                         return match ? (
-                            <a href={href} {...props}>
+                            <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
                                 {children}
                             </a>
                         ) : (
-                            <a href={"https://github.com/dynamic-superb/dynamic-superb/blob/main/docs/" + href} {...props}>
+                            <a href={"https://github.com/dynamic-superb/dynamic-superb/blob/main/docs/" + href} target="_blank" rel="noopener noreferrer" {...props}>
                                 {children}
                             </a>
                         )
