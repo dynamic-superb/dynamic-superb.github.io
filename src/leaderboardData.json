@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Model A",
+    "task": "Task 1",
+    "score": 92.5,
+    "modelURL": "http://example.com/model-a",
+    "additionalMetrics": {
+      "precision": 0.92,
+      "recall": 0.93
+    }
+  },
+  {
+    "name": "Model B",
+    "task": "Task 2",
+    "score": 88.7,
+    "modelURL": "http://example.com/model-b",
+    "additionalMetrics": {
+      "precision": 0.89,
+      "recall": 0.9
+    }
+  }
+]

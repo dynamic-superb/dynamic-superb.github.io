@@ -24,6 +24,7 @@ import CallForTask from './CallForTask';
 import Submission from "./submission";
 import ReviewProcess from "./review_process";
 import NavigationBar from "./components/NavigationBar";
+import LeaderBoard from "./Leaderboard";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
 import SubmitForm from "./components/SubmitForm";
@@ -85,6 +86,11 @@ function App() {
             <Route path="/review-process">
                 <div className={`${classes.narrowViewport}`}>
                     <ReviewProcess />
+                </div>
+            </Route>
+            <Route path="/leaderboard">
+                <div className={`${classes.narrowViewport}`}>
+                    <LeaderBoard />
                 </div>
             </Route>
             {/*<Route path="/leaderboard">
