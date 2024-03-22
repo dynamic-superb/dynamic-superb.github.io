@@ -126,10 +126,9 @@ export default function Landing(props) {
                         <br/>
                         <div>
                             For contributing new tasks, please refer to
-                            the <HashLink smooth to="/task-submission">task submission tutorial</HashLink>.
+                            the <HashLink smooth to="/submission#task-submission">task submission tutorial</HashLink>.
                             To submit scores for your model, please refer to
-                            the <a href="https://github.com/dynamic-superb/dynamic-superb/blob/main/docs/score_submission.md"
-                            target="_blank" rel="noopener noreferrer"> score submission tutorial</a>.
+                            the <HashLink smooth to="/submission#score-submission">score submission tutorial</HashLink>.
                             We welcome tasks from different domains and applications, as
                             long as they are relevant to speech processing.
                         </div>
