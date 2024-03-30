@@ -21,7 +21,6 @@ import Compare from "./Compare";
 import Leaderboard from "./Leaderboard";
 import Challenge from './Challenge';
 import CallForTask from './CallForTask';
-import Submission from "./submission";
 import ReviewProcess from "./review_process";
 import NavigationBar from "./components/NavigationBar";
 import LeaderBoard from "./Leaderboard";
@@ -33,6 +32,8 @@ import { mainTheme } from "./components/Theme";
 import { AuthContext } from "./context/auth-context";
 import { useAuth } from "./hooks/auth-hook";
 import { useContext } from "react";
+import TaskSubmission from "./task_submission";
+import ScoreSubmission from "./score_submission";
 
 const useStyles = makeStyles((theme) => ({
     narrowViewport: {
@@ -78,9 +79,14 @@ function App() {
                     <CallForTask />
                 </div>
             </Route>
-            <Route path="/submission">
+            <Route path="/task-submission">
                 <div className={`${classes.narrowViewport}`}>
-                    <Submission />
+                    <TaskSubmission />
+                </div>
+            </Route>
+            <Route path="/score-submission">
+                <div className={`${classes.narrowViewport}`}>
+                    <ScoreSubmission />
                 </div>
             </Route>
             <Route path="/review-process">

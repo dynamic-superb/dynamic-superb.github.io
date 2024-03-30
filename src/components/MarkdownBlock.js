@@ -56,7 +56,7 @@ export default function MarkdownBlock({ mdFile })
                     },
                     h1({ level, children, ...props }) {
                         const id = children.toString().replace(/ /g, '-')
-                        return <Title id={id} titleComponent={"h1"} titleVariant={"h4"} titleAlign={"left"} title={children}/>
+                        return <Title id={id} titleComponent={"h1"} titleVariant={"h4"} titleAlign={"center"} title={children}/>
                     },
                     h2({ level, children, ...props }) {
                         const id = children.toString().replace(/ /g, '-')
