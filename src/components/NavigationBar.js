@@ -164,6 +164,9 @@ function NavigationBar({ width, tableControlRef, ...props }) {
   let items = [
     //["Challenge", [["SLT2023", "/challenge-slt2023"], ["AAAI2022", "/challenge-aaai2022"]]],
     ["Call for Task", "/call-for-task"],
+    ["Submission", "/submission"],
+    ["Review", "/review-process"],
+    ["Leaderboard", "/leaderboard"],
     ["Github", "https://github.com/dynamic-superb/dynamic-superb"],
     ["Paper", "https://arxiv.org/abs/2309.09510"],
     //["Tasks", "https://github.com/dynamic-superb/dynamic-superb/blob/main/docs/task_list.md"],
@@ -333,7 +336,7 @@ function NavigationBar({ width, tableControlRef, ...props }) {
                     </AdaptiveLink>
                   </Grid>
                   {(location.pathname.includes(
-                    "leaderboard"
+                    "leaderboard-tmp"
                   ) ||
                     location.pathname.includes(
                       "profile"

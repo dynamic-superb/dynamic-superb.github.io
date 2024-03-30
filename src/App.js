@@ -21,7 +21,10 @@ import Compare from "./Compare";
 import Leaderboard from "./Leaderboard";
 import Challenge from './Challenge';
 import CallForTask from './CallForTask';
+import Submission from "./submission";
+import ReviewProcess from "./review_process";
 import NavigationBar from "./components/NavigationBar";
+import LeaderBoard from "./Leaderboard";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
 import SubmitForm from "./components/SubmitForm";
@@ -73,6 +76,21 @@ function App() {
             <Route path="/call-for-task">
                 <div className={`${classes.narrowViewport}`}>
                     <CallForTask />
+                </div>
+            </Route>
+            <Route path="/submission">
+                <div className={`${classes.narrowViewport}`}>
+                    <Submission />
+                </div>
+            </Route>
+            <Route path="/review-process">
+                <div className={`${classes.narrowViewport}`}>
+                    <ReviewProcess />
+                </div>
+            </Route>
+            <Route path="/leaderboard">
+                <div className={`${classes.narrowViewport}`}>
+                    <LeaderBoard />
                 </div>
             </Route>
             {/*<Route path="/leaderboard">

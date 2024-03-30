@@ -4,13 +4,13 @@ import { useTheme } from "@material-ui/core/styles";
 import { useMarkdown } from "./hooks/markdown-file";
 import MarkdownBlock from "./components/MarkdownBlock";
 
-export default function CallForTask() {
+export default function ReviewProcess() {
     const theme = useTheme();
-    const call_for_task = useMarkdown("/call_for_tasks.md");
+    const review_process = useMarkdown("/review_process.md");
 
     return (
         <Box margin={theme.spacing(8, 0)} textAlign="center">
-            <MarkdownBlock mdFile={call_for_task} />
+            <MarkdownBlock mdFile={review_process} />
         </Box>
     );
 }
