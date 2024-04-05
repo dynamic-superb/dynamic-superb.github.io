@@ -95,7 +95,7 @@ function App() {
                 </div>
             </Route>
             <Route path="/leaderboard">
-                <div className={`${classes.narrowViewport}`}>
+                <div>
                     <LeaderBoard />
                 </div>
             </Route>
