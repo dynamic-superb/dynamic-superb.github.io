@@ -11,12 +11,6 @@ import { capitalizeFirstLetter, Strong } from "./components/Utilies";
 import { DescriptionButton } from "./components/Buttons";
 import baseline from "./data/baseline.json";
 
-const useStyles = makeStyles((theme) => ({
-  taskName: {
-    fontWeight: "bold",
-  },
-}));
-
 const statuses = ["Proposal","WIP","Pending","Accepted","Benchmark"]
 
 const domains = ["content","speaker","semantics","degradation","paralinguistics"]
@@ -46,7 +40,6 @@ const taskList = [
 ]
 
 function Tasks(props) {
-  const classes = useStyles();
   const theme = useTheme();
 
   return (
@@ -61,9 +54,9 @@ function Tasks(props) {
           }
         />
       </Section>
-      <Table>
-        <TableContainer component={LiftedPaper}>
-          <Table stickyHeader className={classes.table}>
+      <Box sx={{ overflow: "auto" }}>
+        <TableContainer component={LiftedPaper} sx={{ width: "100%", display: "table", tableLayout: "fixed" }}>
+          <Table stickyHeader>
             <TableHead>
               <TableRow>
                 <TableCell>Instance</TableCell>
@@ -90,7 +83,7 @@ function Tasks(props) {
             </TableBody>
           </Table>
         </TableContainer>
-      </Table>
+      </Box>
       <Box margin={theme.spacing(1, "auto", 6)}>
         <Typography component={"span"} variant="body1" color="textSecondary">
           Want to submit new tasks? Check out<DescriptionButton name={<a>CALL FOR TASK</a>}link="/contribute"/>
