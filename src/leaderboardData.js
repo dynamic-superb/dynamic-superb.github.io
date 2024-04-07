@@ -1055,17 +1055,22 @@ for (const field of models) {
     align: "center",
     headerClassName: "data-grid-header",
     renderCell: (params) => (
+      params.value !== "N/A" ?
+      (
       params.row.best === field ?
       <strong>{params.value}</strong>
       :
-      <>{params.value}</>
+      <span>{params.value}</span>
+      )
+      :
+      <span style={{color: "#d0d0d0"}}>N/A</span>
     )
   };
   columns_transpose.push(column);
 }
 
 const acc_to_float = (acc) => {
-  return acc ? parseFloat(acc.slice(0,-1)) : -1;
+  return acc !== "N/A" ? parseFloat(acc.slice(0,-1)) : -1;
 }
 
 // Generate rows based on the data
@@ -1085,8 +1090,8 @@ for (let index = 0; index < raw_data_seen.instances.length; index++) {
   const row_all = { id: index, Task: task, Dataset: dataset };
 
   for (const model of models) {
-    row_seen[model] = instances_seen[model];
-    row_unseen[model] = instances_unseen[model];
+    row_seen[model] = instances_seen[model] || "N/A";
+    row_unseen[model] = instances_unseen[model] || "N/A";
     row_all[model] = instances_seen[model] || instances_unseen[model];
   }
 
