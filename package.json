@@ -4,8 +4,11 @@
   "private": true,
   "homepage": "https://dynamic-superb.github.io",
   "dependencies": {
+    "@emotion/styled": "^11.11.5",
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
+    "@mui/material": "^5.15.14",
+    "@mui/x-data-grid": "^7.1.0",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
