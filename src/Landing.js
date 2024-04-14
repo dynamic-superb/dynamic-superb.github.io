@@ -99,7 +99,7 @@ export default function Landing(props) {
                         <br/>
                         <div>
                             A comprehensive list of all tasks along with their detailed descriptions
-                            can be found <HashLink to="/tasks">here</HashLink>.
+                            can be found <HashLink to="/tasks#top">here</HashLink>.
                             This list provides an overview of the tasks currently
                             included in the benchmark, but we are actively seeking contributions
                             from the community to expand the range of tasks and make the benchmark

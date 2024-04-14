@@ -34,6 +34,7 @@ import { useAuth } from "./hooks/auth-hook";
 import { useContext } from "react";
 import TaskSubmission from "./task_submission";
 import ScoreSubmission from "./score_submission";
+import TaskDetails from "./TaskDetails";
 
 const useStyles = makeStyles((theme) => ({
     narrowViewport: {
@@ -74,6 +75,12 @@ function App() {
                     <Tasks />
                 </div>
             </Route>
+            <Redirect from='/task/' to='/tasks' exact />
+            <Route path="/task/:name">
+                <div className={`${classes.narrowViewport}`}>
+                    <TaskDetails />
+                </div>
+            </Route>
             <Route path="/call-for-task">
                 <div className={`${classes.narrowViewport}`}>
                     <CallForTask />
@@ -110,6 +117,7 @@ function App() {
     return (
         <div className="App">
             <Router>
+                <div id="top"></div>
                 <div id="navbar">
                     <NavigationBar tableControlRef={tableControlRef} />
                 </div>

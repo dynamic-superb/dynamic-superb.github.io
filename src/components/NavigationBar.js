@@ -166,6 +166,7 @@ function NavigationBar({ width, tableControlRef, ...props }) {
     ["Call for Task", "/call-for-task"],
     ["Submission", [["Task Submission", "/task-submission"], ["Score Submission", "/score-submission"]]],
     ["Review", "/review-process"],
+    ["Tasks", "/tasks"],
     ["Leaderboard", "/leaderboard"],
     ["Github", "https://github.com/dynamic-superb/dynamic-superb"],
     ["Paper", "https://arxiv.org/abs/2309.09510"],

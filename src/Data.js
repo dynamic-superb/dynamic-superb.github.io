@@ -15,164 +15,188 @@ const subscribe_link = "https://forms.gle/sVMWx9FHjL4DvK3K8"
 
 const domains = [
     {
-        name: "recognition",
-        description: "recognition description",
+        name: "Content",
+        description: "Content description",
         tasks: [
             {
-                name: "PR",
+                name: "Language Identification",
                 description:
-                    "\
-            Phoneme Recognition, PR transcribes an utterance into the smallest content units.\
-            We include alignment modeling in the PR task to avoid the potential inaccurate forced alignment.\
-            LibriSpeech train-clean-100/dev-clean/test-clean subsets are adopted in SUPERB for training/validation/testing.\
-            Phoneme transcriptions are obtained from the LibriSpeech official g2p-model-5 and the conversion script in Kaldi librispeech s5 recipe.\
-            The evaluation metric is phone error rate (PER).\
-          ",
+                    "Language Identification task is aimed to determine the language spoken in a given speech recording.\
+                    Currently, we are using the VoxForge Dataset for this task.",
             },
             {
-                name: "ASR",
+                name: "Speech Command Recognition",
                 description:
-                    "\
-            Automatic Speech Recognition, ASR transcribes utterances into words.\
-            While PR analyzes the improvement in modeling phonetics, ASR reflects the significance of the improvement in a real-world scenario.\
-            LibriSpeech train-clean-100/devclean/test-clean subsets are used for training/validation/testing.\
-            The evaluation metric is word error rate (WER).\
-          ",
+                    "Speech Command Recognition aims to identify the spoken command.\
+                    Currently, datasets utilized for this task is the Google Speech Commands V1 datset.",
+            },
+            {
+                name: "Speech Detection",
+                description:
+                    "Speech Detection aims to identify whether the given audio clip contains real speech or not.\
+                    Currently, datasets utilized for this task is the LJSpeech dataset, LibriSpeech-TestClean and LibriSpeech-TestOther dataset.",
+            },
+            {
+                name: "Speech Text Matching",
+                description:
+                    "Speech Text Matching aims to determine if the speech and text are matched.\
+                    Currently, datasets utilized for this task is the LJSpeech dataset, LibriSpeech-TestClean and LibriSpeech-TestOther dataset.",
+            },
+            {
+                name: "Spoken Term Detection",
+                description:
+                    "Spoken Term Detection aims to check for the existence of the given word in the speech.\
+                    Currently, datasets utilized for this task is the LJSpeech dataset, LibriSpeech-TestClean and LibriSpeech-TestOther dataset.",
             },
         ],
     },
     {
-        name: "detection",
-        description: "detection description",
+        name: "Speaker",
+        description: "Speaker description",
         tasks: [
             {
-                name: "KS",
+                name: "Multi-Speaker Detection",
                 description:
-                    "\
-            Keyword Spotting, KS detects preregistered keywords by classifying utterances into a predefined set of words.\
-            The task is usually performed on-device for the fast response time.\
-            Thus, accuracy, model size, and inference time are all crucial.\
-            We choose the widely used Speech Commands dataset v1.0 for the task.\
-            The dataset consists of ten classes of keywords, a class for silence, and an unknown class to include the false positive.\
-            The evaluation metric is accuracy (ACC)\
-          ",
+                    "MultiSpeaker Detection aims to analyze the speech audio to determine whether there is more than one speaker present in it.\
+                    Currently, datasets utilized for this task are the LibriSpeech-TestClean dataset and VCTK Dataset.",
             },
             {
-                name: "QbE",
+                name: "Speaker Counting",
                 description:
-                    "\
-            Query by Example Spoken Term Detection, QbE detects a spoken term (query) in an audio database (documents) by \
-            binary discriminating a given pair of query and document into a match or not.\
-            The English subset in QUESST 2014 challenge is adopted since we focus on investigating English as the first step.\
-            The evaluation metric is maximum term weighted value (MTWV) which balances misses and false alarms.\
-            In the SUPERB Challenge, the average between Mean Average Precision (MAP) and Equal Error Rate (ERR) is used as the metric on the hidden-set\
-          ",
+                    "Speaker Counting aims to identify the total number of speaker in speech audio.\
+                    Currently, datasets utilized for this task is the LibriTTS-TestClean dataset.",
+            },
+            {
+                name: "Speaker Verification",
+                description:
+                    "Speaker verification aims to verify whether the two given speech audios are from the same speaker.\
+                    Currently, datasets utilized for this task is the LibriSpeech-TestClean dataset and the VCTK dataset.",
             },
         ],
     },
     {
-        name: "semantics",
-        description: "semantics description",
+        name: "Semantics",
+        description: "Semantics description",
         tasks: [
             {
-                name: "IC",
+                name: "Dialogue Act Classification",
                 description:
-                    "\
-            Intent Classification, IC classifies utterances into predefined classes to determine the intent of speakers.\
-            We use the Fluent Speech Commands dataset, where each utterance is tagged with three intent labels: action, object, and location.\
-            The evaluation metric is accuracy (ACC).\
-          ",
+                    "Dialogue act classification aims to identify the primary purpose or function of an utterance within its dialogue context.\
+                    Currently, the DailyTalk Dataset is the main dataset used for this task.",
             },
             {
-                name: "SF",
+                name: "Dialogue Act Pairing",
                 description:
-                    "\
-            Slot Filling, SF predicts a sequence of semantic slot-types from an utterance, \
-            like a slot-type FromLocation for a spoken word Taipei, which is known as a slot-value.\
-            Both slot-types and slot-values are essential for an SLU system to function.\
-            The evaluation metrics thus include slot-type F1 score and slotvalue CER.\
-            Audio SNIPS is adopted, which synthesized multi-speaker utterances for SNIPS.\
-            Following the standard split in SNIPS, US-accent speakers are further selected for training, and others are for validation/testing.\
-          ",
+                    "Dialogue act pairing involves assessing the congruence of dialogue acts—that is, whether a response dialogue act is appropriate given a query dialogue act.\
+                    We use the DailyTalk Dataset in this task.",
             },
             {
-                name: "ST",
-                description: `Speech Translation (ST) translates utterance into foreign words. To achieve this goal, the model has to perform ASR and MT simultaneously, which increases the difficulty. CoVoST2 En-De dataset is adopted while all the examples containing "REMOVE" are removed. The evaluation metric is case-sensitive detokenized BLEU. \
-                In the SUPERB Challenge, since it is too difficult to train the ST model with limited translation pairs, we first train on CoVoST2 En-De dataset and then finetuned on the training set of the hidden-set.
-                `
-            }
-        ],
-    },
-    {
-        name: "speaker",
-        description: "speaker description",
-        tasks: [
-            {
-                name: "SID",
+                name: "Intent Classification",
                 description:
-                    "\
-            Speaker Identification, SID classifies each utterance for its speaker identity as a multi-class classification, \
-            where speakers are in the same predefined set for both training and testing.\
-            The widely used VoxCeleb1 [26] is adopted, and the evaluation metric is accuracy (ACC).\
-          ",
+                    "Intent classification aims to identify the actionable item behind a spoken message.\
+                    Currently, we utilize the FluentSpeechCommands Dataset for this task.",
             },
             {
-                name: "SV",
+                name: "Sarcasm Detection",
                 description:
-                    "\
-            Automatic Speaker Verification, ASV verifies whether the speakers of a pair of utterances match as a binary classification, \
-            and speakers in the testing set may not appear in the training set.\
-            Thus, ASV is more challenging than SID. VoxCeleb1 is used without VoxCeleb2 training data and noise augmentation. \
-            The evaluation metric is equal error rate (EER).\
-          ",
-            },
-            {
-                name: "SD",
-                description:
-                    "\
-            Speaker Diarization, SD predicts who is speaking when for each timestamp, and multiple speakers can speak simultaneously.\
-            The model has to encode rich speaker characteristics for each frame and should be able to represent mixtures of signals.\
-            LibriMix is adopted where LibriSpeech train-clean-100/dev-clean/test-clean are used to generate mixtures for training/validation/testing.\
-            We focus on the two-speaker scenario as the first step.\
-            The time-coded speaker labels were generated using alignments from Kaldi LibriSpeech ASR model.\
-            The evaluation metric is diarization error rate (DER).\
-          ",
+                    "Sarcasm Detection aims to detect if the sarcasm or the irony present in the speech audio.\
+                    Currently, datasets utilized for this task is the MUStARD dataset.",
             },
         ],
     },
     {
-        name: "paralinguistics",
-        description: "paralinguistics description",
+        name: "Degradation",
+        description: "Degradation description",
         tasks: [
             {
-                name: "ER",
+                name: "Enhancement Detection",
                 description:
-                    "\
-            Emotion Recognition, ER predicts an emotion class for each utterance.\
-            The most widely used ER dataset IEMOCAP is adopted, and we follow the conventional evaluation protocol:\
-            we drop the unbalance emotion classes to leave the final four classes with a similar amount of data points and \
-            cross-validates on five folds of the standard splits.\
-            The evaluation metric is accuracy (ACC).\
-          ",
+                    "Enhancement detection is a task focused on determining whether a given audio has been created or modified by a speech enhancement model.\
+                    Currently, the project employs the LibriTTS-TestClean dataset for this task.",
+            },
+            {
+                name: "Noise Detection",
+                description:
+                    "Noise Detection aims to idenetify if the speech audio is clean or mixed with noises.\
+                    Currently, datasets utilized for this task are the LJSpeech dataset and VCTK Dataset , and Musan Dataset provides the noise data.",
+            },
+            {
+                name: "Noise SNR Level Prediction",
+                description: "Noise SNR Level Prediction aims to predict the signal-to-noise ratio of the speech audio.\
+                Currently, datasets utilized for this task is the VCTK Dataset, and Musan Dataset provides the noise data."
+            },
+            {
+                name: "Reverberation Detection",
+                description: "Reverberation Detection aims to detect if the speech audio is clean or mixed with room impulse responses (RIRs) and noises, that is to say reverberation noises.\
+                Currently, datasets utilized for this task are the LJSpeech dataset and VCTK dataset , and RIRs Noises dataset provides the reverberation noises."
             },
         ],
     },
     {
-        name: "generation",
-        description: "generation description",
+        name: "Paralinguistics",
+        description: "Paralinguistics description",
         tasks: [
             {
-                name: "SE",
-                description: `Speech enhancement (SE) is the task of removing background noise from a degraded speech signal and improving the perceived quality and intelligibility of the signal. In SUPERB, we evaluate the speech enhancement problem on the VoiceBank-DEMAND corpus. A three layer BLSTM model is trained to predict the spectral mask for the clean signal. The prediction is transformed back to the time domain using inverse short-time Fourier transform (iSTFT). Our evaluation metrics cover various aspects of the speech enhancement quality. including Perceptual Evaluation of Speech Quality (PESQ) and ShortTime Objective Intelligibility (STOI)
-                `
+                name: "Accent Classification",
+                description:
+                    "Accent classification involves the recognition and classification of specific speech accents.\
+                    Currently, the AccentDB Extended Dataset is the only dataset utilized for this task.",
             },
             {
-                name: "SS",
-                description: `Speech Separation (SS) is the task of separating target speech from background interference. It is an important step for speech processing, especially for noisy and multi-talker scenarios. In SUPERB, we investigate speech separation on the Libri2Mix dataset. We use the same 3-layer BLSTM model as the enhancement task, and permutation invariant training (PIT) is performed to optimize the objectives. The evaluation metric for speech separation is scale-invariant signal-to-distortion ratio improvement (SI-SDRi).
-                `
+                name: "Dialogue Emotion Classification",
+                description:
+                    "Dialogue emotion classification is a task that assesses an AI model's ability to identify the most suitable emotion in a given dialogue extract.\
+                    In this context, we use the DailyTalk Dataset as our primary data source.",
+            },
+            {
+                name: "Emotion Recognition",
+                description:
+                    "Emotion recognition aims to identify the most appropriate emotional category for a given utterance.\
+                    Currently, the Multimodal EmotionLines Dataset is the only dataset utilized for this task.",
+            },
+            {
+                name: "How Far Are You",
+                description:
+                    "The HowFarAreYou task aims to determine the distance of the speaker from the source of sound. It primarily involves using the 3DSpeaker Dataset.",
+            },
+            {
+                name: "Spoof Detection",
+                description:
+                    "Spoof Detection aims to classify whether the given utterance is a spoofed voice or an authentic recording.\
+                    Currently, datasets utilized for this task is the ASVspoof 2015 dataset and ASVspoof 2017 dataset.",
+            },
+            {
+                name: "Stress Detection",
+                description:
+                    "Stress Detection aims to determine the stress placement in English vocabulary. Currently, datasets utilized for this task is the MIR-SD dataset.",
             },
         ],
-    }
+    },
+    {
+        name: "Audio",
+        description: "Audio description",
+        tasks: [
+            {
+                name: "Accent Classification",
+                description:
+                    "Bird sound detection is an interesting task that aims to identify the presence or absence of bird sounds in a given speech.\
+                    The main dataset used for this task is the Warblrb10k Dataset",
+            },
+            {
+                name: "Chord Classification",
+                description:
+                    "Chord classification is a crucial task for understanding and analyzing music.\
+                    This endeavor focuses on determining whether a given tune for piano or guitar is in major or minor key.\
+                    Currently, the Acoustic Guitar and Piano Dataset is being used for this task.",
+            },
+            {
+                name: "Environmental Sound Classification",
+                description:
+                    "Environmental Sound Classification (ESC) focuses on recognizing and classifying sounds that originate from the environment.\
+                    At present, the ESC50 Dataset is specifically used for accomplishing this task in the Dynamic-SUPERB benchmark.",
+            },
+        ],
+    },
 ];
 
 const tracks = [

@@ -1,0 +1,10 @@
+{
+    "name": "DialogueActClassification_DailyTalk",
+    "description": "",
+    "keywords": "",
+    "metrics": [
+        "accuracy"
+    ],
+    "path": "DynamicSuperb/DialogueActClassification_DailyTalk",
+    "version": "d417ba60c5e584c69491a00a8eb37829e9c4934c"
+}

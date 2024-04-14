@@ -1,94 +1,102 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useTheme } from "@material-ui/core/styles";
-import { Box, Typography, Grid, Button, Chip, List, ListItem, Divider, Menu } from "@material-ui/core";
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
-import { Section, SubSection } from "./components/Sections";
+import { Box, Typography, Grid, Button } from "@material-ui/core";
+
+import { Section } from "./components/Sections";
 import { Title } from "./components/Titles";
 import AdaptiveLink from "./components/AdaptiveLink";
 import { LiftedPaper } from "./components/LiftedOnHover";
 import { capitalizeFirstLetter, Strong } from "./components/Utilies";
-import { DescriptionButton } from "./components/Buttons";
-import baseline from "./data/baseline.json";
+import { domains } from "./Data";
+import { HashLink } from "react-router-hash-link";
 
-const statuses = ["Proposal","WIP","Pending","Accepted","Benchmark"]
+const useStyles = makeStyles((theme) => ({
+  taskName: {
+    fontWeight: "bold",
+    marginBottom: theme.spacing(2),
+  },
 
-const domains = ["content","speaker","semantics","degradation","paralinguistics"]
+  // taskCard: {
+  //   '&:hover': {
+  //     background: 'green',
+  //     md: "8"
+  //   }
+  // },
 
-const taskList = [
-  {
-    name: "Phoneme Segment Counting Task",
-    description: "",
-    domain: "paralinguistics",
-    status: "WIP",
-    author: "123456789ab"
-  },
-  {
-    name: "Emotional Speech Audio Classification_RAVDESS-EmotionalSound",
-    description: "",
-    domain: "paralinguistics",
-    status: "Pending",
-    author: "kasohg39"
-  },
-  {
-    name: "Human vocal sound recognition",
-    description: "The objective is to separate individual sound sources from a complex audio signal. This task is essential in scenarios where audio recordings contain overlapping sounds from multiple sources, such as different speakers, music, and environmental noises. But in this task, our goal is only to isolate each speaker source into its own track.",
-    domain: "Audio",
-    status: "Proposal",
-    author: "sdgo8h3h"
-  },
-]
+}));
+
+// function Task(props) {
+//   return (
+
+//   )
+// }
 
 function Tasks(props) {
+  const classes = useStyles();
   const theme = useTheme();
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
 
   return (
     <React.Fragment>
       <Section margin={theme.spacing(8, "auto", 1)}>
         <Title
           title="Tasks"
-          description={
-            <span>
-              Lorem Ipsum
-            </span>
-          }
         />
+        <Grid container direction="row" spacing={2} justify="center">
+          {domains.map(({ name }) => (
+            <Grid item>
+              <AdaptiveLink link={`/tasks#${name}`}>
+                <Button variant="outlined">
+                  {capitalizeFirstLetter(name.toLowerCase())}
+                </Button>
+              </AdaptiveLink>
+            </Grid>
+          ))}
+        </Grid>
       </Section>
-      <Box sx={{ overflow: "auto" }}>
-        <TableContainer component={LiftedPaper} sx={{ width: "100%", display: "table", tableLayout: "fixed" }}>
-          <Table stickyHeader>
-            <TableHead>
-              <TableRow>
-                <TableCell>Instance</TableCell>
-                <TableCell align="right" style={{ minWidth: "300" }}>BERT-GSLM</TableCell>
-                <TableCell align="right" style={{ minWidth: "300" }}>Whisper</TableCell>
-                <TableCell align="right" style={{ minWidth: "300" }}>ImageBind-LLM</TableCell>
-                <TableCell align="right" style={{ minWidth: "300" }}>Whisper-LLM</TableCell>
-                <TableCell align="right" style={{ minWidth: "300" }}>ASR-ChatGPT</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {baseline.seen.map((instance) => (
-                <TableRow key={instance.Instance}>
-                  <TableCell component="th" scope="row">
-                    {instance.Instance}
-                  </TableCell>
-                  <TableCell align="right"></TableCell>
-                  <TableCell align="right"></TableCell>
-                  <TableCell align="right"></TableCell>
-                  <TableCell align="right"></TableCell>
-                  <TableCell align="right"></TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Box>
-      <Box margin={theme.spacing(1, "auto", 6)}>
-        <Typography component={"span"} variant="body1" color="textSecondary">
-          Want to submit new tasks? Check out<DescriptionButton name={<a>CALL FOR TASK</a>}link="/contribute"/>
-        </Typography>
-      </Box>
+      {domains.map(({ name, description, tasks }) => {
+        return (
+          <Section anchorKey={name} margin={theme.spacing(8, "auto", 1)}>
+            <Title
+              title={capitalizeFirstLetter(name.toLowerCase())}
+              //description={description}
+            />
+            <Grid container spacing={5} justify="center">
+              {tasks.map(({ name, description }) => {
+                return (
+                  <Grid item xs={12} sm={6} md={4} className={classes.taskCard} >
+                    <LiftedPaper elevation={3}>
+                      <Box padding={theme.spacing(3, 2, 0)}>
+                        <Typography
+                          color="textPrimary"
+                          variant="h6"
+                          className={classes.taskName}
+                        >
+                          {`${name}`}
+                        </Typography>
+                        <Typography color="textSecondary" variant="body2">
+                          {description}
+                        </Typography>
+                        <Box padding={theme.spacing(2, 0)}>
+                        <Typography color="textSecondary" variant="body1" align="right">
+                          <HashLink to={`/task/${name.replaceAll(" ","")}`}>details</HashLink>
+                        </Typography>
+                        </Box>
+                      </Box>
+                    </LiftedPaper>
+                  </Grid>
+                );
+              })}
+            </Grid>
+          </Section>
+        );
+      })}
     </React.Fragment>
   );
 }
