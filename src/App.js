@@ -35,6 +35,7 @@ import { useContext } from "react";
 import TaskSubmission from "./task_submission";
 import ScoreSubmission from "./score_submission";
 import TaskDetails from "./TaskDetails";
+import TaskProposal from "./task_proposal";
 
 const useStyles = makeStyles((theme) => ({
     narrowViewport: {
@@ -99,6 +100,11 @@ function App() {
             <Route path="/review-process">
                 <div className={`${classes.narrowViewport}`}>
                     <ReviewProcess />
+                </div>
+            </Route>
+            <Route path="/task-proposal">
+                <div className={`${classes.narrowViewport}`}>
+                    <TaskProposal />
                 </div>
             </Route>
             <Route path="/leaderboard">

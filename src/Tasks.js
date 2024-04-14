@@ -47,6 +47,10 @@ function Tasks(props) {
       <Section margin={theme.spacing(8, "auto", 1)}>
         <Title
           title="Tasks"
+          description={<span>This list provides an overview of the tasks currently included in the benchmark,
+          but we are actively seeking contributions from the community to expand the range of tasks and
+          make the benchmark more diverse and comprehensive. You can view the performance of each model
+          on the <HashLink to="/leaderboard">leaderboard</HashLink></span>}
         />
         <Grid container direction="row" spacing={2} justify="center">
           {domains.map(({ name }) => (
@@ -64,7 +68,7 @@ function Tasks(props) {
         return (
           <Section anchorKey={name} margin={theme.spacing(8, "auto", 1)}>
             <Title
-              title={capitalizeFirstLetter(name.toLowerCase())}
+              title={name}
               //description={description}
             />
             <Grid container spacing={5} justify="center">
