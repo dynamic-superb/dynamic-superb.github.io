@@ -74,7 +74,7 @@ export default function Landing(props) {
                         color="textSecondary"
                     >
                         <ul>
-                            <li><span><Strong>Mar 14, 2024</Strong>: We have announced the call for tasks. Please click <a href="/call-for-task">here</a> for detailed information.</span></li>
+                            <li><span><Strong>Mar 14, 2024</Strong>: We have announced the call for tasks. Please click <HashLink to="/call-for-task">here</HashLink> for detailed information.</span></li>
                             <li><span><Strong>Mar 13, 2024</Strong>: We have reduced the size of the data for all evaluation instances.</span></li>
                         </ul>
                     </Typography>
@@ -99,14 +99,12 @@ export default function Landing(props) {
                         <br/>
                         <div>
                             A comprehensive list of all tasks along with their detailed descriptions
-                            can be found <a href="https://github.com/dynamic-superb/dynamic-superb/blob/main/docs/task_list.md"
-                            target="_blank" rel="noopener noreferrer">here</a>.
+                            can be found <HashLink to="/tasks">here</HashLink>.
                             This list provides an overview of the tasks currently
                             included in the benchmark, but we are actively seeking contributions
                             from the community to expand the range of tasks and make the benchmark
                             more diverse and comprehensive. You can view the performance of each
-                            model on the <a href="https://github.com/dynamic-superb/dynamic-superb/blob/main/docs/leaderboard.md"
-                            target="_blank" rel="noopener noreferrer">leaderboard</a>.
+                            model on the <HashLink to="/leaderboard">leaderboard</HashLink>.
                         </div>
                     </Typography>
                 </SubSection>
@@ -126,16 +124,16 @@ export default function Landing(props) {
                         <br/>
                         <div>
                             For contributing new tasks, please refer to
-                            the <HashLink smooth to="/submission#task-submission">task submission tutorial</HashLink>.
+                            the <HashLink to="/task-submission">task submission tutorial</HashLink>.
                             To submit scores for your model, please refer to
-                            the <HashLink smooth to="/submission#score-submission">score submission tutorial</HashLink>.
+                            the <HashLink to="/score-submission">score submission tutorial</HashLink>.
                             We welcome tasks from different domains and applications, as
                             long as they are relevant to speech processing.
                         </div>
                         <br/>
                         <div>
                             All submitted tasks will undergo
-                            a <HashLink smooth to="/review-process">review process</HashLink> conducted by our team.
+                            a <HashLink to="/review-process">review process</HashLink> conducted by our team.
                             We will evaluate the quality, feasibility, and relevance of each task
                             proposal. Upon approval, the tasks will be merged into the Dynamic-SUPERB
                             repository, making them available for evaluation and comparison by the

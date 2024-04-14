@@ -6,7 +6,7 @@ import MarkdownBlock from "./components/MarkdownBlock";
 
 export default function ScoreSubmission() {
     const theme = useTheme();
-    const task_submission = useMarkdown("/score_submission.md");
+    const task_submission = useMarkdown("/docs/score_submission.md");
 
     return (
         <Box margin={theme.spacing(8, 0)} textAlign="center">
