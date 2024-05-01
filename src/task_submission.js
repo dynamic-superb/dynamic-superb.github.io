@@ -6,7 +6,7 @@ import MarkdownBlock from "./components/MarkdownBlock";
 
 export default function TaskSubmission() {
     const theme = useTheme();
-    const task_submission = useMarkdown("/docs/task_submission.md");
+    const task_submission = useMarkdown("https://raw.githubusercontent.com/dynamic-superb/dynamic-superb/main/docs/task_submission.md");
 
     return (
         <Box margin={theme.spacing(8, 0)} textAlign="center">

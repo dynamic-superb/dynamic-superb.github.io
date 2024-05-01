@@ -11,13 +11,15 @@ import { subscribe_link } from "./Data";
 import YouTube from "react-youtube";
 import { Title } from "./components/Titles";
 import { HashLink } from "react-router-hash-link";
+import { useMarkdown } from "./hooks/markdown-file";
+import MarkdownBlock from "./components/MarkdownBlock";
 
 export default function Landing(props) {
   const theme = useTheme();
   const ref = useRef(null);
-  const [width, setWidth] = useState(0);
+  //const [width, setWidth] = useState(0);
 
-  useEffect(() => {
+  /*useEffect(() => {
     setWidth(ref.current.offsetWidth);
   }, []);
 
@@ -29,8 +31,65 @@ export default function Landing(props) {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 0,
     },
-  };
+  };*/
 
+  const landing = useMarkdown(
+    "https://raw.githubusercontent.com/dynamic-superb/dynamic-superb/main/README.md"
+  );
+
+  return (
+    <Box margin={theme.spacing(0, 0, 8)} textAlign="center">
+      <Box margin={theme.spacing(8, "auto", 1)}>
+        <Typography
+          variant={useMediaQuery(theme.breakpoints.up("sm")) ? "h2" : "h4"}
+          color="textPrimary"
+        >
+          <strong>Dynamic-SUPERB</strong>
+        </Typography>
+      </Box>
+      <Box margin={theme.spacing(1, "auto", 6)}>
+        <Typography
+          variant={useMediaQuery(theme.breakpoints.up("sm")) ? "h4" : "h5"}
+          color="textPrimary"
+        >
+          Towards A Dynamic, Collaborative, and Comprehensive Instruction-Tuning
+          Benchmark for Speech
+        </Typography>
+      </Box>
+      <MarkdownBlock mdFile={landing} landing={true} />
+      <SubSection>
+        <Grid container justify="space-evenly" spacing={0}>
+          {[
+            ["ntu-1000.png", "https://www.ntu.edu.tw/english/"],
+            ["cmu-1000.png", "https://www.cmu.edu/"],
+            ["huggingface-1000.png", "https://huggingface.co/"],
+          ].map((filename) => {
+            return (
+              <Grid item xs={6} sm={4} md={4} key={filename[0]}>
+                <a target="_blank" href={filename[1]}>
+                  <img src={filename[0]} width="100%" />
+                </a>
+              </Grid>
+            );
+          })}
+        </Grid>
+      </SubSection>
+      <Box margin={theme.spacing(8, 0)} textAlign="center">
+        <Title title="" />
+        <Typography variant="body1" color="textSecondary">
+          This website is modified from the source code of{" "}
+          <DescriptionButton
+            name={<a>the SUPERB official website</a>}
+            link="https://github.com/superbbenchmark/superbbenchmark.github.io"
+            target="_blank"
+            rel="noopener noreferrer"
+          />
+          .
+        </Typography>
+      </Box>
+    </Box>
+  );
+  /*
   return (
     <Box ref={ref} margin={theme.spacing(0, 0, 8)}>
       <Box margin={theme.spacing(8, "auto", 1)}>
@@ -74,14 +133,14 @@ export default function Landing(props) {
             <ul>
               <li>
                 <span>
-                  <Strong>Mar 13, 2024</Strong>: Apr 11, 2024: We have uploaded
+                  <Strong>Apr 11, 2024</Strong>: Apr 11, 2024: We have uploaded
                   general guidelines for task proposals. 📄 Check them out{" "}
                   <HashLink to="/task-proposal">here</HashLink>! 🌟
                 </span>
               </li>
               <li>
                 <span>
-                  <Strong>Mar 13, 2024</Strong>: We have now included the
+                  <Strong>Apr 11, 2024</Strong>: We have now included the
                   evaluation results for LTU-AS, Qwen-Audio, and SALMONN. 📊 For
                   more details, please see{" "}
                   <a
@@ -287,4 +346,5 @@ export default function Landing(props) {
       </Box>
     </Box>
   );
+  */
 }

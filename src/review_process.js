@@ -6,7 +6,7 @@ import MarkdownBlock from "./components/MarkdownBlock";
 
 export default function ReviewProcess() {
     const theme = useTheme();
-    const review_process = useMarkdown("/docs/review_process.md");
+    const review_process = useMarkdown("https://raw.githubusercontent.com/dynamic-superb/dynamic-superb/main/docs/review_process.md");
 
     return (
         <Box margin={theme.spacing(8, 0)} textAlign="center">
