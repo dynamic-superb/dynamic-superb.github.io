@@ -1,0 +1,10 @@
+{
+    "name": "IntentClassification_FluentSpeechCommands-Action",
+    "description": "",
+    "keywords": "",
+    "metrics": [
+        "accuracy"
+    ],
+    "path": "DynamicSuperb/IntentClassification_FluentSpeechCommands-Action",
+    "version": "b4c7f5b05f2b8e822ab40ea042906eec338f2591"
+}
