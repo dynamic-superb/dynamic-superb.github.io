@@ -62,7 +62,7 @@ export default function Landing(props) {
           {[
             ["ntu-1000.png", "https://www.ntu.edu.tw/english/"],
             ["cmu-1000.png", "https://www.cmu.edu/"],
-            ["huggingface-1000.png", "https://huggingface.co/"],
+            ["ut-austin-1000.png", "https://www.utexas.edu/"],
           ].map((filename) => {
             return (
               <Grid item xs={6} sm={4} md={4} key={filename[0]}>
