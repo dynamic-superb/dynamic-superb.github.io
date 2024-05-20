@@ -36,6 +36,7 @@ import TaskSubmission from "./task_submission";
 import ScoreSubmission from "./score_submission";
 import TaskDetails from "./TaskDetails";
 import TaskProposal from "./task_proposal";
+import Docs from "./Docs";
 
 const useStyles = makeStyles((theme) => ({
     narrowViewport: {
@@ -80,6 +81,11 @@ function App() {
             <Route path="/task/:name">
                 <div className={`${classes.narrowViewport}`}>
                     <TaskDetails />
+                </div>
+            </Route>
+            <Route path="/docs/:title">
+                <div className={`${classes.narrowViewport}`}>
+                    <Docs />
                 </div>
             </Route>
             <Route path="/call-for-task">

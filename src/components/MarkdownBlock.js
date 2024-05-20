@@ -13,9 +13,7 @@ import { useTheme } from "@material-ui/core/styles";
 
 const replacements = {
   "task_list.md": "/tasks#top",
-  "task_submission.md": "/task-submission",
-  "review_process.md": "/review-process",
-  "call_for_tasks.md": "/call-for-task",
+  "leaderboard.md": "leaderboard"
 };
 
 export default function MarkdownBlock(props) {
@@ -68,43 +66,44 @@ export default function MarkdownBlock(props) {
               <HashLink to={replacements[href.replace("docs/", "")]}>
                 {children}
               </HashLink>
-            ) : !(/\.md/.exec(href || "") || /^#/.exec(href || "")) ? (
-              /http/.exec(href || "") || /@/.exec(href || "") ? (
-                <a
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  {...props}
-                >
-                  {children}
-                </a>
-              ) : (
-                <a
-                  href={
-                    "https://github.com/dynamic-superb/dynamic-superb/blob/main/" +
-                    href
-                  }
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  {...props}
-                >
-                  {children}
-                </a>
-              )
-            ) : (
-              <HashLink
-                to={href
-                  .replace("docs/", "")
-                  .replace(".md", "")
-                  .replaceAll("_", "-")}
+            ) : /http/.exec(href || "") || /@/.exec(href || "") ? (
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                {...props}
               >
                 {children}
+              </a>
+            ) : /^#/.exec(href || "") ? (
+              <HashLink to={href}>{children}</HashLink>
+            ) : /\.md/.exec(href || "") ? (
+              <HashLink to={href.replace(".md", "").replaceAll("_", "-")}>
+                {children}
               </HashLink>
+            ) : (
+              <a
+                href={
+                  "https://github.com/dynamic-superb/dynamic-superb/blob/main/" +
+                  href
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+                {...props}
+              >
+                {children}
+              </a>
             );
           },
           img({ src, ...props }) {
             return (
-              <img src={landing ? src : `docs/${src}`} alt={src} width="100%" />
+              <img
+                src={`https://raw.githubusercontent.com/dynamic-superb/dynamic-superb/main/${
+                  landing ? "" : "docs/"
+                }${src}`}
+                alt={src}
+                width="100%"
+              />
             );
           },
           p({ level, children, ...props }) {

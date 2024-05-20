@@ -163,8 +163,8 @@ function NavigationBar({ width, tableControlRef, ...props }) {
 
   let items = [
     //["Challenge", [["SLT2023", "/challenge-slt2023"], ["AAAI2022", "/challenge-aaai2022"]]],
-    ["Call for Task", "/call-for-task"],
-    ["Submission", [["Task Submission", "/task-submission"], ["Task Proposal", "/task-proposal"], ["Review Process", "/review-process"], ["Score Submission", "/score-submission"],]],
+    ["Call for Task", "/docs/call-for-tasks"],
+    ["Submission", [["Task Submission", "/docs/task-submission"], ["Task Proposal", "/docs/task-proposal"], ["Review Process", "/docs/review-process"], ["Score Submission", "/docs/score-submission"],]],
     ["Tasks", "/tasks"],
     ["Leaderboard", "/leaderboard"],
     ["Github", "https://github.com/dynamic-superb/dynamic-superb"],

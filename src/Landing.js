@@ -33,7 +33,7 @@ export default function Landing(props) {
     },
   };*/
 
-  const landing = useMarkdown(
+  const { markdownText: landing, _ } = useMarkdown(
     "https://raw.githubusercontent.com/dynamic-superb/dynamic-superb/main/README.md"
   );
 
