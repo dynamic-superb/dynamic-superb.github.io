@@ -14,14 +14,7 @@ import {
 } from "@material-ui/core/styles";
 
 import Landing from "./Landing";
-import News from "./News";
 import Tasks from "./Tasks";
-import Rules from "./Rules";
-import Compare from "./Compare";
-import Leaderboard from "./Leaderboard";
-import Challenge from './Challenge';
-import CallForTask from './CallForTask';
-import ReviewProcess from "./review_process";
 import NavigationBar from "./components/NavigationBar";
 import LeaderBoard from "./Leaderboard";
 import Login from "./components/Login";
@@ -32,10 +25,7 @@ import { mainTheme } from "./components/Theme";
 import { AuthContext } from "./context/auth-context";
 import { useAuth } from "./hooks/auth-hook";
 import { useContext } from "react";
-import TaskSubmission from "./task_submission";
-import ScoreSubmission from "./score_submission";
 import TaskDetails from "./TaskDetails";
-import TaskProposal from "./task_proposal";
 import Docs from "./Docs";
 
 const useStyles = makeStyles((theme) => ({
@@ -86,31 +76,6 @@ function App() {
             <Route path="/docs/:title">
                 <div className={`${classes.narrowViewport}`}>
                     <Docs />
-                </div>
-            </Route>
-            <Route path="/call-for-task">
-                <div className={`${classes.narrowViewport}`}>
-                    <CallForTask />
-                </div>
-            </Route>
-            <Route path="/task-submission">
-                <div className={`${classes.narrowViewport}`}>
-                    <TaskSubmission />
-                </div>
-            </Route>
-            <Route path="/score-submission">
-                <div className={`${classes.narrowViewport}`}>
-                    <ScoreSubmission />
-                </div>
-            </Route>
-            <Route path="/review-process">
-                <div className={`${classes.narrowViewport}`}>
-                    <ReviewProcess />
-                </div>
-            </Route>
-            <Route path="/task-proposal">
-                <div className={`${classes.narrowViewport}`}>
-                    <TaskProposal />
                 </div>
             </Route>
             <Route path="/leaderboard">
