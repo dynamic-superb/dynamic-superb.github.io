@@ -38,8 +38,7 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
-
       - name: Server-side render
         uses: brycedorn/react-snap-action@v1.0.2
         with:
-          output: '.'
+          output: './build'
