@@ -1,8 +1,6 @@
 import * as React from "react";
 import {
   DataGrid,
-  GridRowsProp,
-  GridColDef,
   GridToolbarContainer,
   GridToolbarColumnsButton,
   GridToolbarFilterButton,
@@ -16,7 +14,7 @@ import {
   rows_transpose_seen,
   rows_transpose_unseen,
   rows_transpose_all,
-} from "./leaderboardData.js";
+} from "./leaderboardData";
 import { styled } from "@mui/material/styles";
 import {
   Box,
