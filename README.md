@@ -11,10 +11,11 @@ sudo npm install --global yarn
 yarn install
 ```
 
-2. Create static files
+2. Create static files (written to `./build`)
 ```bash
-yarn deploy
+yarn build
 ```
+For local development, run `yarn start` (Vite dev server on http://localhost:3000).
 
 3. Copy the static files to the corresponding directory
 ```bash
@@ -24,32 +25,4 @@ sudo cp -r ./build/* /var/www/html/
 4. Restart `nginx`
 ```bash
 sudo systemctl restart nginx 
-```
-
-### note
-* package.json 
-
-replace
-```json
-"browserslist": {
-"production": [
-  ">0.2%",
-  "not dead",
-  "not op_mini all"
-],
-"development": [
-  "last 1 chrome version",
-  "last 1 firefox version",
-  "last 1 safari version"
-]
-},
-```
-with
-
-```json
-"browserslist": [
-  ">0.2%",
-  "not dead",
-  "not op_mini all"
-],
 ```
